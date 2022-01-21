@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: eu.hansolo:tilesfx:11.48">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../21-maven/apache-maven-3.8.4/eu/hansolo/tilesfx/11.48/tilesfx-11.48.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../21-maven/apache-maven-3.8.4/eu/hansolo/tilesfx/11.48/tilesfx-11.48-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../21-maven/apache-maven-3.8.4/eu/hansolo/tilesfx/11.48/tilesfx-11.48-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
