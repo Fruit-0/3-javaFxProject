@@ -3,6 +3,9 @@ package com.example.application;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+/**
+ * @author FRUIT
+ */
 public class HelloController {
   @FXML private Label welcomeText;
 
