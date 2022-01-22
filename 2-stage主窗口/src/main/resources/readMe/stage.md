@@ -13,8 +13,7 @@
 
 + _【设置图标】_
 
-  (这个方法现在有问题，路径下的文件无法正常识别，后续需要处理 todo)
-  `stage.getIcons().add(new Image("src/main/resources/image/logo.png"));`
+  `stage.getIcons().add(new Image("file:/image/logo.png"));`
 
 
 + _【resiziable】_
