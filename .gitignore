@@ -1,2 +1,6 @@
 # 项目排除路径
 /1-application/target/
+/out/
+/2-stage主窗口/target/
+/19-网上的案例/target/
+/JavaFxTool/target/
