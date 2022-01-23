@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- 采购入库单 -->
+
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<AnchorPane maxWidth="1143.0" prefHeight="710.0" prefWidth="1143.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yc.education.controller.stock.PurchaseStockController">
+    <children>
+        <HBox prefHeight="30.0" prefWidth="1143.0" styleClass="title_bar_background" stylesheets="@/css/basic.css">
+            <children>
+                <Label prefHeight="30.0" prefWidth="91.0" styleClass="title_bar_words" text="采购入库单">
+                </Label>
+                <Label fx:id="fxmlStatus" prefHeight="30.0" prefWidth="105.0" styleClass="title_bar_words_state" text="【查看】" userData="">
+                </Label>
+            </children>
+        </HBox>
+        <HBox layoutY="30.0" prefHeight="61.0" prefWidth="1143.0" stylesheets="@/css/basic.css">
+            <children>
+                <VBox fx:id="first" onMouseClicked="#pages" styleClass="menu_tools,mouse_hover" userData="">
+                    <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                    </HBox.margin>
+                    <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+
+                            </padding>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="15.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                            <children>
+                                <ImageView fitHeight="26.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/basic/fast.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                        <Label styleClass="menu_words" text="第一笔" textAlignment="CENTER">
+
+                            <padding>
+                                <Insets left="5.0" />
+                            </padding>
+                        </Label>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </VBox>
+                <VBox fx:id="prev" onMouseClicked="#pages" styleClass="menu_tools,mouse_hover" userData="">
+                    <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <ImageView fitHeight="26.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/basic/left.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                        </Pane>
+                        <Label styleClass="menu_words" text="前一笔" textAlignment="CENTER">
+
+                            <padding>
+                                <Insets left="5.0" />
+                            </padding>
+                        </Label>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <HBox.margin>
+                        <Insets right="10.0" />
+                    </HBox.margin>
+                </VBox>
+                <VBox fx:id="next" onMouseClicked="#pages" styleClass="menu_tools,mouse_hover" userData="">
+                    <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <ImageView fitHeight="26.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/basic/last.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                        </Pane>
+                        <Label styleClass="menu_words" text="后一笔" textAlignment="CENTER">
+
+                            <padding>
+                                <Insets left="5.0" />
+                            </padding>
+                        </Label>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <HBox.margin>
+                        <Insets right="10.0" />
+                    </HBox.margin>
+                </VBox>
+                <VBox fx:id="last" onMouseClicked="#pages" styleClass="menu_tools,mouse_hover" userData="">
+                    <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <ImageView fitHeight="26.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/basic/last.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="15.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                        </Pane>
+                        <Label styleClass="menu_words" text="最末尾" textAlignment="CENTER">
+                            <padding>
+                                <Insets left="5.0" />
+                            </padding>
+                        </Label>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <HBox.margin>
+                        <Insets right="10.0" />
+                    </HBox.margin>
+                </VBox>
+                <VBox fx:id="clearvbox" onMouseClicked="#clearValue" styleClass="menu_tools,mouse_hover">
+                    <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <ImageView fitHeight="26.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/basic/clear.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="15.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                        </Pane>
+                        <Label styleClass="menu_words" text="清空" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+
+                            <VBox.margin>
+                                <Insets left="5.0" />
+                            </VBox.margin>
+                            <padding>
+                                <Insets left="5.0" />
+                            </padding>
+                        </Label>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <HBox.margin>
+                        <Insets right="10.0" />
+                    </HBox.margin>
+                </VBox>
+                <VBox fx:id="submitvbox" onMouseClicked="#submit" styleClass="menu_tools,mouse_hover">
+                    <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <ImageView fitHeight="26.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/basic/commit.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                        </Pane>
+                        <Label styleClass="menu_words" text="提交" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+
+                            <padding>
+                                <Insets left="5.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets left="5.0" />
+                            </VBox.margin>
+                        </Label>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <HBox.margin>
+                        <Insets right="10.0" />
+                    </HBox.margin>
+                </VBox>
+                <VBox fx:id="insertvbox" onMouseClicked="#insert" styleClass="menu_tools,mouse_hover">
+                    <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <ImageView fitHeight="26.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/basic/insert.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                        </Pane>
+                        <Label styleClass="menu_words" text="新增" textAlignment="CENTER">
+
+                            <padding>
+                                <Insets left="5.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets left="5.0" />
+                            </VBox.margin>
+                        </Label>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <HBox.margin>
+                        <Insets right="10.0" />
+                    </HBox.margin>
+                </VBox>
+                <VBox fx:id="updatevbox" onMouseClicked="#update" styleClass="menu_tools,mouse_hover">
+                    <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <ImageView fitHeight="26.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/u84.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                        </Pane>
+                        <Label styleClass="menu_words" text="修改" textAlignment="CENTER">
+
+                            <padding>
+                                <Insets left="5.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets left="5.0" />
+                            </VBox.margin>
+                        </Label>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <HBox.margin>
+                        <Insets right="10.0" />
+                    </HBox.margin>
+                </VBox>
+                <VBox fx:id="deletevbox" onMouseClicked="#delete" styleClass="menu_tools,mouse_hover">
+                    <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <ImageView fitHeight="26.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/basic/delete.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                        </Pane>
+                        <Label styleClass="menu_words" text="删除" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+
+                            <padding>
+                                <Insets left="5.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets left="5.0" />
+                            </VBox.margin>
+                        </Label>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <HBox.margin>
+                        <Insets right="10.0" />
+                    </HBox.margin>
+                </VBox>
+                <VBox styleClass="menu_tools,mouse_hover">
+                    <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <ImageView fitHeight="26.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/basic/copy.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                        </Pane>
+                        <Label styleClass="menu_words" text="打印" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+
+                            <padding>
+                                <Insets left="5.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets left="5.0" />
+                            </VBox.margin>
+                        </Label>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <HBox.margin>
+                        <Insets right="10.0" />
+                    </HBox.margin>
+                </VBox>
+
+                <VBox fx:id="shyes" layoutX="542.0" layoutY="10.0" onMouseClicked="#shButtonSuccess" styleClass="menu_tools,mouse_hover">
+                    <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <ImageView fitHeight="26.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/basic/copy.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                        </Pane>
+                        <Label styleClass="menu_words" text="审核" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                            <padding>
+                                <Insets left="5.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets left="5.0" />
+                            </VBox.margin>
+                        </Label>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </VBox>
+                <VBox fx:id="shno" layoutX="600.0" layoutY="10.0" onMouseClicked="#shButtonCancel" prefHeight="61.0" prefWidth="86.0" styleClass="menu_tools_inport,mouse_hover">
+                    <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <ImageView fitHeight="26.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/basic/copy.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                        </Pane>
+                        <Label prefHeight="15.0" prefWidth="526.0" styleClass="menu_words" text="取消审核" textAlignment="CENTER">
+                            <padding>
+                                <Insets left="5.0" />
+                            </padding>
+                        </Label>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </VBox>
+                <VBox fx:id="importData" layoutX="648.0" layoutY="10.0"  prefHeight="61.0" prefWidth="86.0" styleClass="menu_tools_inport,mouse_hover">
+                    <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <ImageView fitHeight="26.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/basic/copy.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                        </Pane>
+                        <MenuButton  mnemonicParsing="false" style="-fx-background-color: transparent;" text="导入">
+                            <items>
+                                <MenuItem onAction="#importPurchaseOrder" mnemonicParsing="false"  text="采购订单" />
+                            </items>
+                        </MenuButton>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </VBox>
+                <VBox fx:id="importOut" layoutX="696.0" layoutY="10.0"  prefHeight="63.0" prefWidth="120.0" styleClass="menu_tools_inport,mouse_hover">
+                    <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <ImageView fitHeight="26.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/basic/copy.png" />
+                                    </image>
+                                </ImageView>
+                                <MenuButton fx:id="imports1" layoutX="-13.0" layoutY="31.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="导出">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="采购入库单" />
+                                    </items>
+                                </MenuButton>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                        </Pane>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </VBox>
+
+
+
+            </children>
+        </HBox>
+        <VBox layoutY="95.0" prefHeight="200.0" prefWidth="100.0" styleClass="menu_underline" stylesheets="@/css/basic.css" AnchorPane.bottomAnchor="614.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="95.0" />
+        <Pane layoutX="22.0" layoutY="112.0" prefHeight="253.0" prefWidth="898.0" stylesheets="@/css/basic.css">
+            <children>
+                <Label layoutY="6.0" text="制单日期：" />
+                <Label layoutX="268.0" layoutY="7.0" text="入库单号：" />
+                <TextField fx:id="stockorder" layoutX="328.0" layoutY="2.0" />
+                <Button fx:id="saleButton" layoutX="492.0" onMouseClicked="#morePurchaseStockClick" layoutY="2.0" mnemonicParsing="false" text="..." />
+                <Label layoutX="244.0" layoutY="41.0" />
+
+                <Label layoutX="-11.0" layoutY="41.0" text="供应商编号：" />
+                <TextField fx:id="suppliernum" layoutX="63.0" layoutY="36.0" prefHeight="25.0" prefWidth="161.0" />
+                <TextField fx:id="suppliername" layoutX="268.0" layoutY="36.0" prefHeight="25.0" prefWidth="220.0" />
+                <Label layoutX="10.0" layoutY="110.0" text="审核人：" />
+                <TextField fx:id="shpeople" layoutX="61.0" layoutY="106.0" prefHeight="25.0" prefWidth="161.0" />
+                <Label layoutX="20.0" layoutY="196.0" text="备注：" />
+                <TextArea fx:id="remarks" layoutX="64.0" layoutY="178.0" prefHeight="50.0" prefWidth="425.0" />
+                <TextField fx:id="shdate" layoutX="229.0" layoutY="106.0" prefHeight="25.0" prefWidth="161.0" />
+                <DatePicker fx:id="createdate" layoutX="63.0" layoutY="2.0" prefHeight="23.0" prefWidth="161.0" />
+                <TextField fx:id="depotnum" layoutX="602.0" layoutY="2.0" prefHeight="23.0" prefWidth="72.0" />
+                <Label layoutX="545.0" layoutY="6.0" text="入库仓库:" />
+                <Button fx:id="saleButton1" onMouseClicked="#morePurchaseStockDepotClick" layoutX="676.0" layoutY="2.0" mnemonicParsing="false" text="..." />
+                <TextField fx:id="depotname" layoutX="712.0" layoutY="2.0" prefHeight="23.0" prefWidth="72.0" />
+                <TextField fx:id="depotfloor" layoutX="793.0" layoutY="2.0" prefHeight="23.0" prefWidth="72.0" />
+                <Button fx:id="saleButton2" onMouseClicked="#moreSupplierClick" layoutX="229.0" layoutY="37.0" mnemonicParsing="false" text="..." />
+                <Label layoutX="545.0" layoutY="41.0" text="装箱单号:" />
+                <TextField fx:id="boxnum" layoutX="602.0" layoutY="36.0" prefHeight="25.0" prefWidth="161.0" />
+                <Label layoutX="10.0" layoutY="71.0" text="质检人：" />
+                <ComboBox fx:id="inspectnum" layoutX="67.0" layoutY="70.0" prefHeight="23.0" prefWidth="72.0" />
+                <TextField fx:id="inspectname" layoutX="142.0" layoutY="69.0" prefHeight="25.0" prefWidth="82.0" />
+                <Label layoutX="276.0" layoutY="71.0" text="制单人：" />
+                <TextField fx:id="createname" layoutX="328.0" layoutY="69.0" prefHeight="25.0" prefWidth="161.0" />
+                <Label layoutX="-14.0" layoutY="143.0" text="最后修改人：" />
+                <TextField fx:id="updatepeople" layoutX="61.0" layoutY="139.0" prefHeight="25.0" prefWidth="161.0" />
+                <TextField fx:id="updatedate" layoutX="229.0" layoutY="139.0" prefHeight="25.0" prefWidth="161.0" />
+
+
+            </children>
+        </Pane>
+
+
+        <JFXTabPane focusTraversable="false" layoutY="365.0" prefHeight="345.0" prefWidth="1143.0" rotateGraphic="true" stylesheets="@/css/basic.css">
+            <tabs>
+                <Tab text="入库产品">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="purchaseStockProductView" layoutY="-2.0" prefHeight="240.0" prefWidth="1143.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                        <TableColumn maxWidth="1000.0" prefWidth="75.0" text=" " />
+                                        <TableColumn fx:id="pro_sourseorder" prefWidth="75.0" text="来源单据" />
+                                        <TableColumn fx:id="pro_orders" prefWidth="75.0" text="单号" />
+                                        <TableColumn fx:id="pro_sort" prefWidth="75.0" text="序号" />
+                                        <TableColumn fx:id="pro_seeorder" prefWidth="75.0" text="参考单号" />
+                                        <TableColumn fx:id="pro_pronum" prefWidth="75.0" text="产品编号" />
+                                        <TableColumn fx:id="pro_proname" prefWidth="75.0" text="产品名称" />
+                                        <TableColumn fx:id="pro_stocknum" prefWidth="75.0" text="入库数量" />
+                                        <TableColumn fx:id="pro_units" prefWidth="75.0" text="单位" />
+                                        <TableColumn fx:id="pro_depotnum" prefWidth="75.0" text="库位编号" />
+                                        <TableColumn fx:id="pro_depotname" prefWidth="75.0" text="库位名称" />
+                                        <TableColumn fx:id="pro_remarks" prefWidth="75.0" text="备注" />
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+
+            </tabs>
+        </JFXTabPane>
+
+
+
+
+    </children>
+</AnchorPane>

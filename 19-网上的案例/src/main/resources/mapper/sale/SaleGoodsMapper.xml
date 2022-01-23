@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yc.education.mapper.sale.SaleGoodsMapper" >
+  <resultMap id="BaseResultMap" type="com.yc.education.model.sale.SaleGoods" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="sale_no" property="saleNo" jdbcType="VARCHAR" />
+    <result column="warehouse_out" property="warehouseOut" jdbcType="INTEGER" />
+    <result column="warehouse_out_str" property="warehouseOutStr" jdbcType="VARCHAR" />
+    <result column="warehouse_position" property="warehousePosition" jdbcType="INTEGER" />
+    <result column="warehouse_position_str" property="warehousePositionStr" jdbcType="VARCHAR" />
+    <result column="customer_no" property="customerNo" jdbcType="VARCHAR" />
+    <result column="customer_no_str" property="customerNoStr" jdbcType="VARCHAR" />
+    <result column="customer_order_no" property="customerOrderNo" jdbcType="VARCHAR" />
+    <result column="tax" property="tax" jdbcType="INTEGER" />
+    <result column="currency" property="currency" jdbcType="INTEGER" />
+    <result column="discount" property="discount" jdbcType="VARCHAR" />
+    <result column="customer_category" property="customerCategory" jdbcType="VARCHAR" />
+    <result column="sale_receivable" property="saleReceivable" jdbcType="DECIMAL" />
+    <result column="business_leader" property="businessLeader" jdbcType="VARCHAR" />
+    <result column="business_leader_str" property="businessLeaderStr" jdbcType="VARCHAR" />
+    <result column="payment" property="payment" jdbcType="INTEGER" />
+    <result column="made_people" property="madePeople" jdbcType="VARCHAR" />
+    <result column="delivery_status" property="deliveryStatus" jdbcType="INTEGER" />
+    <result column="carry_method" property="carryMethod" jdbcType="INTEGER" />
+    <result column="carry_method_str" property="carryMethodStr" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="DOUBLE" />
+    <result column="last_update" property="lastUpdate" jdbcType="VARCHAR" />
+    <result column="last_update_str" property="lastUpdateStr" jdbcType="VARCHAR" />
+    <result column="audit" property="audit" jdbcType="VARCHAR" />
+    <result column="audit_str" property="auditStr" jdbcType="VARCHAR" />
+    <result column="customer_name" property="customerName" jdbcType="VARCHAR" />
+    <result column="zip" property="zip" jdbcType="VARCHAR" />
+    <result column="contact" property="contact" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="fax" property="fax" jdbcType="VARCHAR" />
+    <result column="shipping_address" property="shippingAddress" jdbcType="VARCHAR" />
+    <result column="invoice_title" property="invoiceTitle" jdbcType="VARCHAR" />
+    <result column="invoice_address" property="invoiceAddress" jdbcType="VARCHAR" />
+    <result column="addtime" property="addtime" jdbcType="TIMESTAMP" />
+    <result column="special_order" property="specialOrder" jdbcType="BIT" />
+    <result column="special_price_order" property="specialPriceOrder" jdbcType="BIT" />
+    <result column="special_order" property="specialOrder" jdbcType="BIT" />
+    <result column="invalid" property="invalid" jdbcType="BIT" />
+    <result column="order_audit" property="orderAudit" jdbcType="BIT" />
+
+  </resultMap>
+
+  <select id="listSaleGoodsByStates" resultMap="BaseResultMap">
+        SELECT * FROM sale_goods
+        <where>
+          <if test="customerno != null and customerno != ''">
+            and customer_no = #{customerno}
+          </if>
+          <if test="begintime != null and begintime != ''">
+            and #{begintime} &lt;= create_date
+          </if>
+          <if test="endtime != null and endtime != ''">
+            and #{endtime}  &gt;= create_date
+          </if>
+          and order_audit = #{verifystate}
+        </where>
+        ORDER BY addtime desc
+    </select>
+
+  <select id="listSaleGoodsAll" resultMap="BaseResultMap">
+        SELECT * FROM sale_goods ORDER BY addtime desc
+    </select>
+
+  <select id="getSaleGoods" resultMap="BaseResultMap">
+        SELECT * FROM sale_goods WHERE sale_no = #{orderno}
+    </select>
+
+  <select id="getLastSaleGoods" resultMap="BaseResultMap">
+        SELECT * FROM sale_goods  ORDER BY id asc  limit 0,1
+    </select>
+
+  <select id="getFirstSaleGoods" resultMap="BaseResultMap">
+        SELECT * FROM sale_goods  ORDER BY id desc  limit 0,1
+    </select>
+
+  <select id="getSaleGoodsByPage" resultMap="BaseResultMap">
+       SELECT * FROM sale_goods limit #{page},#{rows}
+    </select>
+</mapper>

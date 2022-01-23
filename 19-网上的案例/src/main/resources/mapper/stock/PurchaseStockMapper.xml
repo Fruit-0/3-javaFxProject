@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yc.education.mapper.stock.PurchaseStockMapper" >
+  <resultMap id="BaseResultMap" type="com.yc.education.model.stock.PurchaseStock" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="createdate" property="createdate" jdbcType="DATE" />
+    <result column="stockorder" property="stockorder" jdbcType="VARCHAR" />
+    <result column="depotnum" property="depotnum" jdbcType="VARCHAR" />
+    <result column="depotname" property="depotname" jdbcType="VARCHAR" />
+    <result column="depotfloor" property="depotfloor" jdbcType="VARCHAR" />
+    <result column="suppliernum" property="suppliernum" jdbcType="VARCHAR" />
+    <result column="suppliername" property="suppliername" jdbcType="VARCHAR" />
+    <result column="boxnum" property="boxnum" jdbcType="VARCHAR" />
+    <result column="inspectnum" property="inspectnum" jdbcType="VARCHAR" />
+    <result column="inspectname" property="inspectname" jdbcType="VARCHAR" />
+    <result column="createname" property="createname" jdbcType="VARCHAR" />
+    <result column="shpeople" property="shpeople" jdbcType="VARCHAR" />
+    <result column="shdate" property="shdate" jdbcType="VARCHAR" />
+    <result column="updatepeople" property="updatepeople" jdbcType="VARCHAR" />
+    <result column="updatedate" property="updatedate" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="shstatus" property="shstatus" jdbcType="INTEGER" />
+  </resultMap>
+
+  <select id="selectMaxIdnum"  resultType="java.lang.String" >
+  SELECT MAX(stockorder) FROM purchase_stock where createdate =#{currentDate}
+  </select>
+
+  <select id="findPurchaseStock" resultMap="BaseResultMap">
+  select * from purchase_stock
+  </select>
+
+</mapper>

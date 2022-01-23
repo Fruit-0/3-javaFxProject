@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yc.education.mapper.customer.AreaMapper" >
+  <resultMap id="BaseResultMap" type="com.yc.education.model.customer.Area" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="areaid" property="areaid" jdbcType="INTEGER" />
+    <result column="areacode" property="areacode" jdbcType="VARCHAR" />
+    <result column="areaname" property="areaname" jdbcType="VARCHAR" />
+    <result column="level" property="level" jdbcType="TINYINT" />
+    <result column="citycode" property="citycode" jdbcType="VARCHAR" />
+    <result column="center" property="center" jdbcType="VARCHAR" />
+    <result column="parentid" property="parentid" jdbcType="INTEGER" />
+  </resultMap>
+</mapper>

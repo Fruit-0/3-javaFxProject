@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.education.mapper.purchase.TransportationProductMapper">
+  <resultMap id="BaseResultMap" type="com.yc.education.model.purchase.TransportationProduct">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="parentid" jdbcType="BIGINT" property="parentid" />
+    <result column="purchaseorder" jdbcType="VARCHAR" property="purchaseorder" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="pronum" jdbcType="VARCHAR" property="pronum" />
+    <result column="stocknum" jdbcType="VARCHAR" property="stocknum" />
+    <result column="boxnum" jdbcType="VARCHAR" property="boxnum" />
+    <result column="thistimeontheway" jdbcType="INTEGER" property="thistimeontheway" />
+    <result column="totalnum" jdbcType="INTEGER" property="totalnum" />
+    <result column="stockover" jdbcType="INTEGER" property="stockover" />
+    <result column="forcenum" jdbcType="INTEGER" property="forcenum" />
+    <result column="ontheway" jdbcType="INTEGER" property="ontheway" />
+  </resultMap>
+  <!--根据在途库存编号查询在途产品-->
+  <select id="findTransportationProductByParentid" resultMap="BaseResultMap">
+    select * from transportation_product where parentid = #{parentid}
+  </select>
+
+</mapper>

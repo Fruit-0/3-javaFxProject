@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yc.education.mapper.stock.PurchaseStockProductMapper" >
+  <resultMap id="BaseResultMap" type="com.yc.education.model.stock.PurchaseStockProduct" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="sourseorder" property="sourseorder" jdbcType="VARCHAR" />
+    <result column="orders" property="orders" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="seeorder" property="seeorder" jdbcType="VARCHAR" />
+    <result column="pronum" property="pronum" jdbcType="VARCHAR" />
+    <result column="proname" property="proname" jdbcType="VARCHAR" />
+    <result column="stocknum" property="stocknum" jdbcType="INTEGER" />
+    <result column="units" property="units" jdbcType="VARCHAR" />
+    <result column="depotnum" property="depotnum" jdbcType="VARCHAR" />
+    <result column="depotname" property="depotname" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="purchasestockid" property="purchasestockid" jdbcType="BIGINT" />
+  </resultMap>
+
+  <select id="findStockProductBypurchaseStockId" resultMap="BaseResultMap">
+      select * from  purchase_stock_product where purchasestockid = #{id}
+  </select>
+
+</mapper>

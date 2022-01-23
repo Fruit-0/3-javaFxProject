@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yc.education.mapper.ProductStockMapper" >
+  <resultMap id="BaseResultMap" type="com.yc.education.model.ProductStock" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="productorder" property="productorder" jdbcType="VARCHAR" />
+    <result column="productname" property="productname" jdbcType="VARCHAR" />
+    <result column="usablenum" property="usablenum" jdbcType="INTEGER" />
+    <result column="stocknum" property="stocknum" jdbcType="INTEGER" />
+    <result column="onthewaynum" property="onthewaynum" jdbcType="INTEGER" />
+    <result column="salenum" property="salenum" jdbcType="INTEGER" />
+    <result column="backnum" property="backnum" jdbcType="INTEGER" />
+    <result column="purchasenum" property="purchasenum" jdbcType="INTEGER" />
+    <result column="parprice" property="parprice" jdbcType="DOUBLE" />
+  </resultMap>
+  <!--产品库存查询-->
+  <select id="findProductStock" resultMap="BaseResultMap">
+    select * from product_stock
+      <where>
+        <if test="sisnum != '' and sisnum != null ">
+          and  productorder &gt;= #{sisnum}
+        </if>
+        <if test="eisnum != '' and eisnum != null ">
+          and  productorder &lt;= #{eisnum}
+        </if>
+        <if test="sproname != '' and sproname != null ">
+          and  productname &gt;= #{sproname}
+        </if>
+        <if test="eproname != '' and eproname != null ">
+          and  productname &lt;= #{eproname}
+        </if>
+        <!--<if test="stype != '' and stype != null ">
+          and  productorder &gt;= #{stype}
+        </if>
+        <if test="etype != '' and etype != null ">
+          and  productorder &lt;= #{etype}
+        </if>-->
+      </where>
+  </select>
+
+</mapper>

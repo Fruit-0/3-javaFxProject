@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<!-- 月度销售统计 -->
+
+<AnchorPane maxWidth="1143.0" prefHeight="710.0" prefWidth="1143.0" stylesheets="@../../css/basic.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yc.education.controller.sale.QuotationController">
+    <children>
+      <Label layoutX="46.0" layoutY="123.0" text="公司别：" />
+      <JFXButton layoutX="547.0" layoutY="182.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="8.0" styleClass="jfx_textfield" text="..." />
+      <JFXButton layoutX="222.0" layoutY="153.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="8.0" styleClass="jfx_textfield" text="..." />
+      <JFXTextField focusColor="#405aa800" layoutX="100.0" layoutY="121.0" prefHeight="23.0" prefWidth="42.0" styleClass="jfx_textfield" text="05" unFocusColor="#4d4d4d00" />
+      <Pane layoutX="303.0" layoutY="164.0" prefHeight="1.0" prefWidth="72.0" style="-fx-background-color: #000;" />
+      <Label layoutX="36.0" layoutY="157.0" text="客户编号：" />
+      <JFXTextField focusColor="#405aa800" layoutX="147.0" layoutY="121.0" prefHeight="23.0" prefWidth="99.0" styleClass="jfx_textfield" text="三禄" unFocusColor="#4d4d4d00" />
+      <JFXTextField focusColor="#405aa800" layoutX="100.0" layoutY="153.0" prefHeight="23.0" prefWidth="119.0" styleClass="jfx_textfield" unFocusColor="#4d4d4d00" />
+      <JFXTextField focusColor="#405aa800" layoutX="425.0" layoutY="153.0" prefHeight="23.0" prefWidth="119.0" styleClass="jfx_textfield" unFocusColor="#4d4d4d00" />
+      <Pane layoutY="646.0" prefHeight="63.0" prefWidth="1143.0" style="-fx-background-color: #eee;">
+         <children>
+            <JFXButton layoutX="353.0" layoutY="17.0" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #FFF;" text="预览" />
+            <JFXButton layoutX="446.0" layoutY="17.0" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #FFF;" text="Excel" />
+            <JFXButton layoutX="634.0" layoutY="17.0" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #FFF;" text="打印" />
+            <JFXButton layoutX="541.0" layoutY="17.0" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #FFF;" text="Word" />
+            <JFXButton layoutX="724.0" layoutY="17.0" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #FFF;" text="退出" />
+         </children>
+      </Pane>
+      <Label layoutX="32.0" layoutY="220.0" text="负责业务：" />
+      <Label layoutX="32.0" layoutY="188.0" text="客户地区：" />
+      <JFXComboBox focusColor="#405aa800" layoutX="99.0" layoutY="184.0" prefHeight="23.0" prefWidth="147.0" styleClass="jfx_combobox" unFocusColor="#4d4d4d00" />
+      <JFXComboBox focusColor="#405aa800" layoutX="423.0" layoutY="184.0" prefHeight="23.0" prefWidth="147.0" styleClass="jfx_combobox" unFocusColor="#4d4d4d00" />
+      <Pane layoutX="300.0" layoutY="195.0" prefHeight="1.0" prefWidth="72.0" style="-fx-background-color: #000;" />
+      <Pane layoutX="300.0" layoutY="227.0" prefHeight="1.0" prefWidth="72.0" style="-fx-background-color: #000;" />
+      <JFXComboBox focusColor="#405aa800" layoutX="423.0" layoutY="216.0" prefHeight="23.0" prefWidth="147.0" styleClass="jfx_combobox" unFocusColor="#4d4d4d00" />
+      <JFXComboBox focusColor="#405aa800" layoutX="99.0" layoutY="216.0" prefHeight="23.0" prefWidth="147.0" styleClass="jfx_combobox" unFocusColor="#4d4d4d00" />
+      <Label layoutX="50.0" layoutY="93.0" text="公司别：" />
+      <JFXCheckBox layoutX="33.0" layoutY="253.0" text="扣减退货数量" />
+      <JFXButton layoutX="547.0" layoutY="153.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="8.0" styleClass="jfx_textfield" text="..." />
+      <Label layoutX="50.0" layoutY="54.0" text="条件" />
+      <HBox layoutY="-1.0" prefHeight="30.0" prefWidth="1143.0" styleClass="title_bar_background" stylesheets="@/css/basic.css">
+         <children>
+            <Label prefHeight="30.0" prefWidth="109.0" styleClass="title_bar_words" text="销货月报表" />
+         </children>
+      </HBox>
+      <JFXDatePicker layoutX="100.0" layoutY="89.0" prefHeight="23.0" prefWidth="152.0" styleClass="jfx_textfield" />
+
+
+    </children>
+</AnchorPane>

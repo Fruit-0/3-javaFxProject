@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yc.education.mapper.basic.ProductBasicMapper" >
+  <resultMap id="BaseResultMap" type="com.yc.education.model.basic.ProductBasic" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="isnum" property="isnum" jdbcType="VARCHAR" />
+    <result column="proname" property="proname" jdbcType="VARCHAR" />
+    <result column="pronum" property="pronum" jdbcType="VARCHAR" />
+    <result column="invoicenum" property="invoicenum" jdbcType="VARCHAR" />
+    <result column="basicunit" property="basicunit" jdbcType="BIGINT" />
+    <result column="protype" property="protype" jdbcType="BIGINT" />
+    <result column="normpricetype" property="normpricetype" jdbcType="BIGINT" />
+    <result column="normprice" property="normprice" jdbcType="DOUBLE" />
+    <result column="lowpricetype" property="lowpricetype" jdbcType="BIGINT" />
+    <result column="lowprice" property="lowprice" jdbcType="DOUBLE" />
+    <result column="pronature" property="pronature" jdbcType="BIGINT" />
+    <result column="prosource" property="prosource" jdbcType="BIGINT" />
+    <result column="packnum" property="packnum" jdbcType="INTEGER" />
+    <result column="minnum" property="minnum" jdbcType="INTEGER" />
+    <result column="businesstype" property="businesstype" jdbcType="BIGINT" />
+    <result column="business" property="business" jdbcType="VARCHAR" />
+    <result column="purchasetype" property="purchasetype" jdbcType="BIGINT" />
+    <result column="purchase" property="purchase" jdbcType="VARCHAR" />
+    <result column="maxstock" property="maxstock" jdbcType="INTEGER" />
+    <result column="safetystock" property="safetystock" jdbcType="INTEGER" />
+    <result column="inventoryplace" property="inventoryplace" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="addpeople" property="addpeople" jdbcType="VARCHAR" />
+    <result column="adddate" property="adddate" jdbcType="DATE" />
+    <result column="updatepeople" property="updatepeople" jdbcType="VARCHAR" />
+    <result column="updatedate" property="updatedate" jdbcType="DATE" />
+    <result column="costtype" property="costtype" jdbcType="BIGINT" />
+    <result column="cost" property="cost" jdbcType="DOUBLE" />
+    <result column="isstop" property="isstop" jdbcType="INTEGER" />
+    <result column="stopdes" property="stopdes" jdbcType="VARCHAR" />
+  </resultMap>
+
+
+  <select id="selectMaxIdnum" resultType="java.lang.String">
+    SELECT MAX(ISNUM) FROM PRODUCT_BASIC
+  </select>
+
+
+  <select id="selectProductBasic" resultMap="BaseResultMap">
+    SELECT * FROM PRODUCT_BASIC order by id DESC
+  </select>
+
+
+  <select id="selectProductBasicByIsnum" resultMap="BaseResultMap">
+    SELECT * FROM PRODUCT_BASIC WHERE isnum = #{idnum} limit 0,1
+  </select>
+
+
+  <select id="selectProductBasicSearch" resultMap="BaseResultMap">
+    select * from PRODUCT_BASIC
+
+    <where>
+      <if test="isnum != null and isnum != ''" >
+        and isnum =#{isnum}
+      </if>
+
+      <if test="proname != null and proname != ''" >
+        and proname =#{proname}
+      </if>
+
+     <!-- <if test="basicunit != null and basicunit != '' and basicunit != 0" >
+      </if>-->
+        and basicunit =#{basicunit}
+
+
+      <!--<if test="protype != null and protype != '' and protype != 0 " >
+      </if>-->
+        and protype =#{protype}
+
+    </where>
+
+    order by id DESC
+
+  </select>
+
+
+
+</mapper>

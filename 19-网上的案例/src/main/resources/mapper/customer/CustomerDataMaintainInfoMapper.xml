@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yc.education.mapper.customer.CustomerDataMaintainInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.yc.education.model.customer.CustomerDataMaintainInfo" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="maintain_id" property="maintainId" jdbcType="BIGINT" />
+    <result column="start_year" property="startYear" jdbcType="VARCHAR" />
+    <result column="annual_turnover" property="annualTurnover" jdbcType="VARCHAR" />
+    <result column="fax" property="fax" jdbcType="VARCHAR" />
+    <result column="employee_num" property="employeeNum" jdbcType="INTEGER" />
+    <result column="budget" property="budget" jdbcType="VARCHAR" />
+    <result column="industry" property="industry" jdbcType="VARCHAR" />
+    <result column="addtime" property="addtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+    <select id="listCustomerDataMaintainInfo" resultMap="BaseResultMap">
+        SELECT * FROM customer_data_maintain_info ORDER BY addtime desc
+    </select>
+
+    <select id="getCustomerDataMaintainInfoByMaintainId" resultMap="BaseResultMap">
+        SELECT * from customer_data_maintain_info WHERE maintain_id = #{maintainId}  LIMIT 0,1
+    </select>
+
+    <delete id="deleteCustomerDataMaintainInfoByMaintainId">
+        DELETE from customer_data_maintain_info where maintain_id = #{maintainId}
+    </delete>
+</mapper>

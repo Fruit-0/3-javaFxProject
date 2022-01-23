@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yc.education.mapper.basic.EmployeeBasicMapper" >
+  <resultMap id="BaseResultMap" type="com.yc.education.model.basic.EmployeeBasic" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="idnum" property="idnum" jdbcType="VARCHAR" />
+    <result column="jobnum" property="jobnum" jdbcType="VARCHAR" />
+    <result column="empname" property="empname" jdbcType="VARCHAR" />
+    <result column="empsex" property="empsex" jdbcType="INTEGER" />
+    <result column="empcard" property="empcard" jdbcType="VARCHAR" />
+    <result column="englishname" property="englishname" jdbcType="VARCHAR" />
+    <result column="country" property="country" jdbcType="INTEGER" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+    <result column="passportnum" property="passportnum" jdbcType="VARCHAR" />
+    <result column="birthplace" property="birthplace" jdbcType="INTEGER" />
+    <result column="nation" property="nation" jdbcType="INTEGER" />
+    <result column="marital" property="marital" jdbcType="INTEGER" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="addpeople" property="addpeople" jdbcType="VARCHAR" />
+    <result column="adddate" property="adddate" jdbcType="DATE" />
+    <result column="updatepeople" property="updatepeople" jdbcType="VARCHAR" />
+    <result column="updatedate" property="updatedate" jdbcType="DATE" />
+    <result column="isstop" property="isstop" jdbcType="INTEGER" />
+    <result column="stopdes" property="stopdes" jdbcType="VARCHAR" />
+    <result column="department" property="department" jdbcType="BIGINT" />
+    <result column="duty" property="duty" jdbcType="INTEGER" />
+    <result column="usedate" property="usedate" jdbcType="INTEGER" />
+    <result column="comedate" property="comedate" jdbcType="DATE" />
+    <result column="okdate" property="okdate" jdbcType="DATE" />
+    <result column="dutystatus" property="dutystatus" jdbcType="INTEGER" />
+    <result column="outdate" property="outdate" jdbcType="VARCHAR" />
+    <result column="checknum" property="checknum" jdbcType="VARCHAR" />
+    <result column="subsdiy" property="subsdiy" jdbcType="DOUBLE" />
+    <result column="grade" property="grade" jdbcType="INTEGER" />
+    <result column="insurance" property="insurance" jdbcType="INTEGER" />
+  </resultMap>
+
+  <select id="selectMaxIdnum" resultType="java.lang.String">
+    SELECT MAX(IDNUM) FROM EMPLOYEE_BASIC
+  </select>
+
+
+  <select id="selectEmployeeBasic" resultMap="BaseResultMap">
+    SELECT * FROM EMPLOYEE_BASIC order by id DESC
+  </select>
+
+
+  <select id="selectEmployeeBasicByIsnum" resultMap="BaseResultMap">
+    SELECT * FROM EMPLOYEE_BASIC WHERE idnum = #{idnum} limit 0,1
+  </select>
+
+
+
+</mapper>

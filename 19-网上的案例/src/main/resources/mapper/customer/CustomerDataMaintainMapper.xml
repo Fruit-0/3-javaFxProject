@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yc.education.mapper.customer.CustomerDataMaintainMapper" >
+  <resultMap id="BaseResultMap" type="com.yc.education.model.customer.CustomerDataMaintain" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="customer_id" property="customerId" jdbcType="BIGINT" />
+    <result column="customer_no" property="customerNo" jdbcType="VARCHAR" />
+    <result column="customer_no_str" property="customerNoStr" jdbcType="VARCHAR" />
+    <result column="create_no" property="createNo" jdbcType="VARCHAR" />
+    <result column="customer_name" property="customerName" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="addtime" property="addtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+    <select id="listCustomerDataMaintain" resultMap="BaseResultMap">
+        SELECT * FROM customer_data_maintain
+        <where>
+            <if test="name!=''">
+                AND customer_name  like concat(concat('%',#{name}),'%')
+            </if>
+        </where>
+        ORDER BY addtime desc
+    </select>
+
+    <delete id="deleteCustomerDataMaintainByCustomerId" >
+        delete FROM customer_data_maintain WHERE customer_id = #{customerid}
+    </delete>
+
+    <select id="getFirstCustomerDataMaintain" resultMap="BaseResultMap">
+        SELECT * FROM customer_data_maintain  ORDER BY id asc  limit 0,1
+    </select>
+
+    <select id="getLastCustomerDataMaintain" resultMap="BaseResultMap">
+        SELECT * FROM customer_data_maintain  ORDER BY id desc  limit 0,1
+    </select>
+
+    <select id="getCustomerDataMaintainByPage" resultMap="BaseResultMap">
+        SELECT * FROM customer_data_maintain limit #{page},#{rows}
+    </select>
+
+    <select id="getCustomerDataMaintainCount" resultType="integer">
+        SELECT count(*) FROM customer_data_maintain
+    </select>
+</mapper>

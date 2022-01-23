@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yc.education.mapper.sale.SaleGoodsProductMapper" >
+  <resultMap id="BaseResultMap" type="com.yc.education.model.sale.SaleGoodsProduct" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="sale_goods_id" property="saleGoodsId" jdbcType="BIGINT" />
+    <result column="product_no" property="productNo" jdbcType="VARCHAR" />
+    <result column="order_no" property="orderNo" jdbcType="VARCHAR" />
+    <result column="product_name" property="productName" jdbcType="VARCHAR" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="pricing" property="pricing" jdbcType="DECIMAL" />
+    <result column="discount" property="discount" jdbcType="DOUBLE" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="money" property="money" jdbcType="DECIMAL" />
+    <result column="warehouse_position" property="warehousePosition" jdbcType="VARCHAR" />
+    <result column="floor" property="floor" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="addtime" property="addtime" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="customer_name" property="customerName" jdbcType="VARCHAR" />
+    <result column="customer_no" property="customerNo" jdbcType="VARCHAR" />
+    <result column="business_leader" property="businessLeader" jdbcType="VARCHAR" />
+    <result column="sale_no" property="saleNo" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+
+
+
+  <select id="listSaleGoodsProduct" resultMap="BaseResultMap">
+    SELECT * from sale_goods_product where sale_goods_id = #{orderid}
+  </select>
+
+  <select id="listSaleGoodsProductDiscount" resultMap="BaseResultMap">
+    select g.business_leader,g.create_date,g.sale_no,g.customer_name,g.customer_no,p.addtime,p.category,p.discount,p.floor,p.id,p.money,p.num,p.order_no,p.price,p.pricing,p.product_name,p.product_no,p.remark,p.sale_goods_id,p.unit,p.warehouse_position from sale_goods g inner JOIN sale_goods_product p on g.id = p.sale_goods_id
+    <where>
+      <if test="customerNo !='' and customerNo != null">
+        AND #{customerNo} &lt;= g.customer_no
+      </if>
+      <if test="customerNoEnd !='' and customerNoEnd != null">
+        AND #{customerNoEnd} &lt;= g.customer_no
+      </if>
+      <if test="productNo !='' and productNo != null">
+        AND #{productNo} &lt;= p.product_no
+      </if>
+      <if test="productNoEnd !='' and productNoEnd != null">
+        AND #{productNoEnd} &lt;= p.product_no
+      </if>
+      <if test="productName !='' and productName != null">
+        AND #{productName} &lt;= p.product_name
+      </if>
+      <if test="productNameEnd !='' and productNameEnd != null">
+        AND #{productNameEnd} &lt;= p.product_name
+      </if>
+      <if test="saleDateStr !='' and saleDateStr != null">
+        AND #{saleDateStr} &lt;= g.create_date
+      </if>
+      <if test="saleDateEndStr !='' and saleDateEndStr != null">
+        AND #{saleDateEndStr} &lt;= g.create_date
+      </if>
+      <if test="customerName !='' and customerName != null">
+        AND #{customerName}  &lt;= g.customer_name
+      </if>
+      <if test="customerNameEnd !='' and customerNameEnd != null">
+        AND #{customerNameEnd}  &lt;= g.customer_name
+      </if>
+      <if test="discountStr !='' and discountStr != null">
+        AND #{discountStr} = g.discount
+      </if>
+    </where>
+  </select>
+
+</mapper>

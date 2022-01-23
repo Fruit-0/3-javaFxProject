@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yc.education.mapper.basic.CompanyBasicMapper" >
+  <resultMap id="BaseResultMap" type="com.yc.education.model.basic.CompanyBasic" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="idnum" property="idnum" jdbcType="VARCHAR" />
+    <result column="comdes" property="comdes" jdbcType="VARCHAR" />
+    <result column="comname" property="comname" jdbcType="VARCHAR" />
+    <result column="regadd" property="regadd" jdbcType="VARCHAR" />
+    <result column="country" property="country" jdbcType="INTEGER" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+    <result column="postalcode" property="postalcode" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="fax" property="fax" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="addpeople" property="addpeople" jdbcType="VARCHAR" />
+    <result column="adddate" property="adddate" jdbcType="DATE" />
+    <result column="updatepeople" property="updatepeople" jdbcType="VARCHAR" />
+    <result column="updatedate" property="updatedate" jdbcType="DATE" />
+    <result column="isstop" property="isstop" jdbcType="INTEGER" />
+    <result column="stopdes" property="stopdes" jdbcType="VARCHAR" />
+    <result column="openbank" property="openbank" jdbcType="VARCHAR" />
+    <result column="bankaccount" property="bankaccount" jdbcType="VARCHAR" />
+    <result column="taxaccount" property="taxaccount" jdbcType="VARCHAR" />
+    <result column="invoicehead" property="invoicehead" jdbcType="VARCHAR" />
+    <result column="invoiceadd" property="invoiceadd" jdbcType="VARCHAR" />
+    <result column="comeandgo" property="comeandgo" jdbcType="INTEGER" />
+  </resultMap>
+
+  <select id="selectMaxIdnum" resultType="java.lang.String">
+    SELECT MAX(IDNUM) FROM COMPANY_BASIC
+  </select>
+
+
+  <select id="selectCompanyBasic" resultMap="BaseResultMap">
+    SELECT * FROM COMPANY_BASIC WHERE COMEANDGO = 0 order by id DESC
+  </select>
+
+
+  <select id="selectCompanyBasicByIsnum" resultMap="BaseResultMap">
+    SELECT * FROM COMPANY_BASIC WHERE idnum = #{idnum} limit 0,1
+  </select>
+
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yc.education.mapper.stock.CheckStockProductMapper" >
+  <resultMap id="BaseResultMap" type="com.yc.education.model.stock.CheckStockProduct" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="productorder" property="productorder" jdbcType="VARCHAR" />
+    <result column="productname" property="productname" jdbcType="VARCHAR" />
+    <result column="depotorder" property="depotorder" jdbcType="VARCHAR" />
+    <result column="depotname" property="depotname" jdbcType="VARCHAR" />
+    <result column="depotnum" property="depotnum" jdbcType="INTEGER" />
+    <result column="nownum" property="nownum" jdbcType="INTEGER" />
+    <result column="productunit" property="productunit" jdbcType="VARCHAR" />
+    <result column="profitandloss" property="profitandloss" jdbcType="VARCHAR" />
+    <result column="productprice" property="productprice" jdbcType="DOUBLE" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="checkid" property="checkid" jdbcType="BIGINT" />
+  </resultMap>
+  <!--根据盘库作业编号查询盘库作业产品-->
+  <select id="findCheckStockProduct" resultMap="BaseResultMap">
+    select * from check_stock_product where checkid = #{checkid}
+  </select>
+
+</mapper>
