@@ -1,16 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.fruit.javafxtool.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+<VBox fx:id="rootVBox" prefHeight="216.0" prefWidth="421.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fruit.javafxtool.HelloController">
+   <MenuBar VBox.vgrow="NEVER">
+     <menus>
+       <Menu mnemonicParsing="false" text="基本功能">
+         <items>
+           <MenuItem mnemonicParsing="false" text="Close" />
+         </items>
+       </Menu>
+       <Menu mnemonicParsing="false" text="设置">
+         <items>
+           <MenuItem mnemonicParsing="false" text="Delete" />
+         </items>
+       </Menu>
+       <Menu mnemonicParsing="false" text="帮助">
+         <items>
+           <MenuItem mnemonicParsing="false" text="About" />
+         </items>
+       </Menu>
+     </menus>
+   </MenuBar>
+   <AnchorPane prefHeight="207.0" prefWidth="421.0">
+      <children>
+         <VBox prefHeight="218.0" prefWidth="421.0">
+            <children>
+               <HBox prefHeight="63.0" prefWidth="421.0">
+                  <children>
+                     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="77.0" text="excel路径" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                        <HBox.margin>
+                           <Insets bottom="40.0" left="40.0" right="10.0" top="40.0" />
+                        </HBox.margin>
+                     </Label>
+                     <TextField fx:id="excel_text" promptText="请输入要处理的excel路径">
+                        <HBox.margin>
+                           <Insets top="40.0" />
+                        </HBox.margin>
+                     </TextField>
+                     <Button fx:id="excelChoose_button" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#onExcelButtonClick" prefHeight="23.0" prefWidth="102.0" text="选择excel路径" textAlignment="CENTER">
+                        <HBox.margin>
+                           <Insets top="40.0" />
+                        </HBox.margin>
+                     </Button>
+                  </children>
+               </HBox>
+               <HBox prefHeight="32.0" prefWidth="421.0">
+                  <children>
+                     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="77.0" text="txt路径" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                        <HBox.margin>
+                           <Insets bottom="40.0" left="40.0" right="10.0" top="40.0" />
+                        </HBox.margin>
+                     </Label>
+                     <TextField fx:id="txt_text" promptText="输入路径">
+                        <HBox.margin>
+                           <Insets top="40.0" />
+                        </HBox.margin>
+                     </TextField>
+                     <Button fx:id="txtChoose_button" mnemonicParsing="false" onMouseClicked="#onTxtButtonClick" prefHeight="23.0" prefWidth="102.0" text="选择txt路径">
+                        <HBox.margin>
+                           <Insets top="40.0" />
+                        </HBox.margin>
+                     </Button>
+                  </children>
+               </HBox>
+               <HBox prefHeight="151.0" prefWidth="421.0">
+                  <children>
+                     <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#onDealExcelButtonClick" text="开始执行">
+                        <HBox.margin>
+                           <Insets bottom="20.0" left="180.0" />
+                        </HBox.margin>
+                     </Button>
+                  </children>
+               </HBox>
+            </children>
+         </VBox>
+      </children>
+   </AnchorPane>
 </VBox>
